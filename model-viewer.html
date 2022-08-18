@@ -1,0 +1,962 @@
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+
+<script>  
+  /**
+   * @param String name
+   * @return String
+   */
+
+  </script>
+<script type="module">
+
+var prodId = getParameterByName('prodId');
+  var srcUrl;
+  console.log(prodId);
+  document.getElementById("p1modal").innerHTML = "testttt";
+  const modelViewer3 = document.querySelector("model-viewer");
+  
+  document.getElementById("imgmodal1").src="assets/prod"+prodId+"/modalimg.png";
+  // const jsonData= require('assets/prod'+prodId+'/data.json'); 
+  fetch("assets/prod"+prodId+"/data.json")
+  .then(response => response.json())
+  .then(json => document.getElementById("p1modal").innerHTML = json[0].description);
+  // const jsonData= require('assets/prod1/data.json'); 
+  // console.log(jsonData);
+  // var mydata = JSON.parse(jsonData);
+  // document.getElementById("p1modal").innerHTML = mydata[0].description;
+  const base = "assets/" + name;
+    srcUrl = "assets/prod"+prodId+"/model.glb";
+    modelViewer3.src = srcUrl;
+  // if(prodId ==1){
+    
+  //   const base = "assets/" + name;
+  //   srcUrl = "assets/prod1/model.glb";
+  //   modelViewer3.src = srcUrl;
+  //   // modelViewer.poster = base + '.png';
+  // }
+  // if(prodId ==2){
+  //   // modelViewer.src = base + '.glb';
+  //   // modelViewer.poster = base + '.png';
+  //   srcUrl = "assets/prod2/model.glb";
+  //   modelViewer3.src = srcUrl;
+  // }
+   function getParameterByName(name) {
+      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+      results = regex.exec(location.search);
+      return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+  
+  window.switchSrc = (element, name) => {
+    const base = "../../assets/ShopifyModels/" + name;
+    modelViewer.src = base + '.glb';
+    modelViewer.poster = base + '.png';
+    const slides = document.querySelectorAll(".slide");
+  };
+</script><script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
+  
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  var info = new Boolean(true);
+  // When the user clicks the button, open the modal 
+  btn.onclick = function() {
+    console.log("esto sirve");
+    modal.style.display = "block";
+    if(!info){
+      info = true;
+      modal.style.display = "none";
+document.getElementById("infoid").src="images/faunalayers_0002_boton-info.png";
+}else{
+document.getElementById("infoid").src="images/infoinv.png";
+info = false;
+}
+  }
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  // window.onclick = function(event) {
+  //   if (event.target == modal) {
+  //     modal.style.display = "none";
+  //   }
+  // }
+  </script><script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
+  
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  // When the user clicks the button, open the modal 
+  var info = new Boolean(true);
+  function myFunction2(){
+    console.log("esto sirve");
+    modal.style.display = "block";
+    if(!info){
+      info = true;
+      modal.style.display = "none";
+document.getElementById("infoid").src="images/faunalayers_0002_boton-info.png";
+}else{
+document.getElementById("infoid").src="images/infoinv.png";
+info = false;
+}
+  }
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    
+    // modal.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+//   window.onclick = function(event) {
+//     if (event.target == modal) {
+      
+//       modal.style.display = "none";
+// document.getElementById("infoid").src="images/faunalayers_0002_boton-info.png";
+//       info = true;
+//     }
+//   }
+  </script><script> 
+    var x = new Boolean(true);
+    function getParameterByName(name) {
+      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+      results = regex.exec(location.search);
+      return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+  
+  var once = new Boolean(true);
+    function myFunction() { 
+      if(x){
+        if(once){
+
+          var prodId = getParameterByName('prodId');
+          if(prodId ==1){
+            
+            audio = new Audio('assets/prod1/music.mp3');
+            // modelViewer.poster = base + '.png';
+          }
+          if(prodId ==2){
+            audio = new Audio('assets/prod2/music.mp3');
+          }
+          once = false;
+        }
+        console.log("happens");
+        audio.play();
+        document.getElementById("imageid").src="images/faunalayers_0003_boton-pause.png";
+        x=false;
+      }else{
+        document.getElementById("imageid").src="images/faunalayers_0003_boton-play.png";
+        audio.pause();
+        x= true;
+      }
+}
+const formatSeconds = (secs) => {
+  const pad = (n) => n < 10 ? `0${n}` : n;
+
+  const h = Math.floor(secs / 3600);
+  const m = Math.floor(secs / 60) - (h * 60);
+  const s = Math.floor(secs - h * 3600 - m * 60);
+
+  return `${pad(m)}:${pad(s)}`;
+}
+var intervalId = window.setInterval(function(){
+  /// call your function here
+  if(!once)
+  {
+    document.getElementById("timeText").innerHTML = `${formatSeconds(audio.duration - audio.currentTime)}`;
+  }
+  }, 100);
+</script>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Set a style for all buttons */
+
+
+button:hover {
+  opacity:1;
+}
+
+/* Float cancel and delete buttons and add an equal width */
+.cancelbtn, .deletebtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add a color to the cancel button */
+.cancelbtn {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Add a color to the delete button */
+.deletebtn {
+  background-color: #f44336;
+}
+
+/* Add padding and center-align text to the container */
+.container {
+    /* background-size: 100%;
+    background-image: url(images/back.png);
+    background-repeat: no-repeat;
+    background-position: center; */
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #343539;
+  width: 80%;
+  height: 63%;
+  border-radius: 39px;
+  display: flex;
+  flex-direction: column;
+}
+.background {
+    background-size: 100%;
+    background-image: url(images/back.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.up-container img {
+  width: 78%;
+  margin-top: 9%;
+}
+
+.down-container {
+  overflow-y: hidden;
+  height: 100%;
+}
+
+.down-container h4 {
+  font-size: 12px;
+  color: #cfcfcf;
+  text-align: justify;
+  margin-left: 11%;
+  margin-right: 11%;
+  font-weight: 500;
+}
+
+.button-container {
+  display: flex;
+  justify-content: right;
+  height: 100%;
+}
+
+.button-container img {
+  width: 44%;
+}
+
+.button-container button {
+  all: unset;
+}
+
+.botones-izquierdos {
+  display: flex;
+  flex-direction: row;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  padding-top: 45%;
+}
+.imgmodal {
+width: 100%;
+}
+/* Modal Content/Box */
+.modal-content {
+  /* background-color: #fefefe; */
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  /* border: 1px solid #888; */
+  width: 100%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Modal Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+#timeText {
+  position: absolute;
+    top: 13.59%;
+    right: 76%;
+    width: 16%;
+    background-image: url("images/faunalayers_0004_barra-timer-player.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-size: 100%;
+    text-align: center;
+    height: 80%;
+    line-height: 30px;
+    color: #ccc;
+    background-position: center;
+}
+#timeText2 {
+  position: absolute;
+  text-decoration: none;
+    top: 13.59%;
+    right: 50%;
+    width: 16%;
+    background-image: url("images/faunalayers_0004_barra-timer-player.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-size: 90%;
+    text-align: center;
+    height: 80%;
+    line-height: 30px;
+    color: #ccc;
+    background-position: center;
+}
+
+/* Change styles for cancel button and delete button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .deletebtn {
+     width: 100%;
+  }
+}
+</style>
+<model-viewer class="background" id="hotspot-camera-view-demo" style="width: 100%; height: 100%;" bounds="tight" enable-pan src="assets/untitled-reduced-ppi.glb" alt="Thor and the Midgard Serpent" ar-modes="webxr scene-viewer quick-look" camera-controls enable-pan touch-action="none" poster="poster.webp" shadow-intensity="1">
+  <div class="top">
+    <div class="logo">
+      <h1><span style="color:rgb(185, 185, 54)">Fauna</span><br><span style="color:white">Paugil</span>
+    </div>
+    <div class="logo2">
+      <img src="images/faunalayers_0000_logo-moz.png" alt="">
+    </div>
+  </div>
+  <div class="franja">
+
+    
+    <div class="botones">       
+      <button onclick="myFunction()" >
+        <img id="imageid"  src="images/faunalayers_0003_boton-play.png" alt="">
+      </button> 
+      <button class="play-button" onclick="document.getElementById('id01').style.display='block'; myFunction2()">
+        <img id="infoid" src="images/faunalayers_0002_boton-info.png" alt="">
+      </button>
+      <div class="botones-izquierdos">
+        <div id="timeText"></div>
+        <div></div><a href="" id="timeText2">EN/ESP</a>
+        <div></div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="progress-bar hide" slot="progress-bar">
+      <div class="update-bar"></div>
+  </div> 
+  <div id="id01" class="modal">
+    <!-- <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span> -->
+    <form class="modal-content" action="/action_page.php">
+      <div class="container">
+        <div class="up-container">
+          <img id = "imgmodal1" src="images/faunalayers_0018_ventanaimagen-(thumbnal).png" alt="">
+        </div>
+        <div class="down-container">
+          <h4 id="p1modal">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4>
+        </div>
+        <div class="button-container">
+          <button><img src="images/faunalayers_0001_boton-+.png" alt=""></button>
+        </div>
+      </div>
+    </form>
+  </div><script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+document.getElementById("infoid").src="images/faunalayers_0002_boton-info.png";
+      info = true;
+      }
+    }
+
+    document.addEventListener('touchstart', function(e) {
+      if(e.targetTouches[0].target== modal) {
+      modal.style.display = "none";
+document.getElementById("infoid").src="images/faunalayers_0002_boton-info.png";
+      info = true;}
+    });
+    </script>
+  <div class="redes">
+    <a href="https://m.me/"><img src="images/faunalayers_0005_fb-icon.png" alt=""></a>
+    <a href="https://twitter.com/intent/tweet?text=https://wiseinmedia.com/AR-MV-main/model-viewer.html?prodId=1"><img src="images/faunalayers_0006_twitter-icon.png" alt=""></a>
+    <a href="mailto:user@domain.com?Subject=Hello%20User"><img src="images/faunalayers_0007_google-icon.png" alt=""></a>
+    <a href="https://api.whatsapp.com/send/?text=https://wiseinmedia.com/AR-MV-main/model-viewer.html?prodId=1&type=phone_number&app_absent=0"><img src="images/faunalayers_0008_whatsapp-icon.png" alt=""></a>
+    <a href="https://wiseinmedia.com/AR-MV-main/assets/untitled-reduced-ppi.glb"><img src="images/faunalayers_0009_download-social.png" alt=""></a>
+  </div>
+  <div class="slider">
+    <div class="slides">
+      <button class="slide selected" onclick="switchSrc(this, 'Chair')" slot="hotspot" data-position="-0.0569m 0.0969m -0.1398m" data-normal="-0.5829775m 0.2863482m -0.7603565m" data-camera-orbit="-80deg 55deg 2.5m"  data-target="-0.04384604m 0.07348397m -0.1213202m" style="background-image: url('images/frente.png');">
+
+      </button><button class="slide" onclick="switchSrc(this, 'Chair')" slot="hotspot" data-position="-0.0569m 0.0969m -0.1398m" data-normal="-0.5829775m 0.2863482m -0.7603565m" data-camera-orbit="-45deg 55deg 2.5m"   data-target="-0.04384604m 0.07348397m -0.1213202m" style="background-image: url('images/3-4.png');">
+
+      </button><button class="slide" onclick="switchSrc(this, 'Chair')" slot="hotspot" data-position="-0.0569m 0.0969m -0.1398m" data-normal="-0.5829775m 0.2863482m -0.7603565m" data-camera-orbit="0deg 55deg 2.5m"   data-target="-0.04384604m 0.07348397m -0.1213202m" style="background-image: url('images/orto.png');">
+      
+      </button>
+    </div>
+  </div>
+  <div id="ar-prompt">
+      <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+  </div>
+</model-viewer>
+
+<script type="module">
+  const modelViewer1 = document.querySelector("#hotspot-camera-view-demo");
+  const annotationClicked = (annotation) => {
+    console.log("rotating");
+    let dataset = annotation.dataset;
+    modelViewer1.cameraTarget = dataset.target;
+    modelViewer1.cameraOrbit = dataset.cameraOrbit;
+    modelViewer1.fieldOfView = '45deg';
+  }
+
+  modelViewer1.querySelectorAll('button').forEach((hotspot) => {
+    console.log("hello hotspot", hotspot);
+    hotspot.addEventListener('click', () => annotationClicked(hotspot));
+  });
+
+  
+
+</script>
+<style type="text/css">
+  .view-button {
+      background: #434448;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+      color: rgba(0, 0, 0, 0.8);
+      display: block;
+      font-family: Futura, Helvetica Neue, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      max-width: 128px;
+      overflow-wrap: break-word;
+      padding: 0.5em 1em;
+      position: absolute;
+      width: max-content;
+      height: max-content;
+      transform: translate3d(-50%, -50%, 0);
+    }
+</style><script type="module">
+  const modelViewer = document.querySelector("model-viewer");
+
+  window.switchSrc = (element, name) => {
+    const slides = document.querySelectorAll(".slide");
+    slides.forEach((element) => {element.classList.remove("selected");});
+    element.classList.add("selected");
+  };
+
+  document.querySelector(".slider").addEventListener('beforexrselect', (ev) => {
+    // Keep slider interactions from affecting the XR scene.
+    ev.preventDefault();
+  });
+</script>
+
+<style>
+  /* This keeps child nodes hidden while the element loads */
+  :not(:defined) > * {
+    display: none;
+  }
+
+  model-viewer {
+    background-color: #434448;
+    overflow-x: hidden;
+    --poster-color: #434448;
+  }
+
+  #ar-button {
+    background-image: url(../../assets/ic_view_in_ar_new_googblue_48dp.png);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: 12px 50%;
+    background-color: #434448;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    bottom: 132px;
+    padding: 0px 16px 0px 40px;
+    font-family: Roboto Regular, Helvetica Neue, sans-serif;
+    font-size: 14px;
+    color:#4285f4;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 18px;
+    border: 1px solid #DADCE0;
+  }
+
+  #ar-button:active {
+    background-color: #E8EAED;
+  }
+
+  #ar-button:focus {
+    outline: none;
+  }
+
+  #ar-button:focus-visible {
+    outline: 1px solid #4285f4;
+  }
+
+  @keyframes circle {
+    from { transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg); }
+    to   { transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg); }
+  }
+
+  @keyframes elongate {
+    from { transform: translateX(100px); }
+    to   { transform: translateX(-100px); }
+  }
+
+  model-viewer > #ar-prompt {
+    position: absolute;
+    left: 50%;
+    bottom: 175px;
+    animation: elongate 2s infinite ease-in-out alternate;
+    display: none;
+  }
+
+  model-viewer[ar-status="session-started"] > #ar-prompt {
+    display: block;
+  }
+
+  model-viewer > #ar-prompt > img {
+    animation: circle 4s linear infinite;
+  }
+
+  model-viewer > #ar-failure {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 175px;
+    display: none;
+  }
+
+  model-viewer[ar-tracking="not-tracking"] > #ar-failure {
+    display: block;
+  }
+
+  .slider {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    position: absolute;
+    bottom: 16px;
+  }
+
+  .slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .slide {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 300px;
+    height: 300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fff;
+    margin-right: 10px;
+    border-radius: 50px;
+    border: none;
+    display: flex;
+  }
+
+  .slide.selected {
+    border: 2px solid #4285f4;
+  }
+
+  .slide:focus {
+    outline: none;
+  }
+
+  .slide:focus-visible {
+    outline: 1px solid #4285f4;
+  }
+
+</style>
+<!-- <model-viewer src="../../assets/ShopifyModels/Chair.glb" poster="../../assets/ShopifyModels/Chair.png" shadow-intensity="1" ar ar-modes="webxr scene-viewer quick-look" camera-controls alt="A 3D model carousel">
+  
+  <button slot="ar-button" id="ar-button">
+    View in your space
+  </button>
+
+  <div id="ar-prompt">
+    <img src="../../assets/hand.png">
+  </div>
+
+  <button id="ar-failure">
+    AR is not tracking!
+  </button>
+
+  <div class="slider">
+    <div class="slides">
+      <button class="slide selected" onclick="switchSrc(this, 'Chair')" style="background-image: url('../../assets/ShopifyModels/Chair.png');">
+
+      </button><button class="slide" onclick="switchSrc(this, 'Mixer')" style="background-image: url('../../assets/ShopifyModels/Mixer.png');">
+
+      </button><button class="slide" onclick="switchSrc(this, 'GeoPlanter')" style="background-image: url('../../assets/ShopifyModels/GeoPlanter.png');">
+      
+      </button><button class="slide" onclick="switchSrc(this, 'ToyTrain')" style="background-image: url('../../assets/ShopifyModels/ToyTrain.png');">
+      
+      </button><button class="slide" onclick="switchSrc(this, 'Canoe')" style="background-image: url('../../assets/ShopifyModels/Canoe.png');">    
+    </button></div>
+  </div>
+</model-viewer>
+
+<script type="module">
+  const modelViewer = document.querySelector("model-viewer");
+
+  window.switchSrc = (element, name) => {
+    const base = "../../assets/ShopifyModels/" + name;
+    modelViewer.src = base + '.glb';
+    modelViewer.poster = base + '.png';
+    const slides = document.querySelectorAll(".slide");
+    slides.forEach((element) => {element.classList.remove("selected");});
+    element.classList.add("selected");
+  };
+
+  document.querySelector(".slider").addEventListener('beforexrselect', (ev) => {
+    // Keep slider interactions from affecting the XR scene.
+    ev.preventDefault();
+  });
+</script> -->
+
+<style>
+  /* This keeps child nodes hidden while the element loads */
+  :not(:defined) > * {
+    display: none;
+  }
+
+  model-viewer {
+    background-color: #434448;
+    overflow-x: hidden;
+    --poster-color: #434448;
+  }
+
+  #ar-button {
+    background-image: url(../../assets/ic_view_in_ar_new_googblue_48dp.png);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: 12px 50%;
+    background-color: #343545;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    bottom: 132px;
+    padding: 0px 16px 0px 40px;
+    font-family: Roboto Regular, Helvetica Neue, sans-serif;
+    font-size: 14px;
+    color:#4285f4;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 18px;
+    border: 1px solid #DADCE0;
+  }
+
+  #ar-button:active {
+    background-color: #343539;
+  }
+
+  #ar-button:focus {
+    outline: none;
+  }
+
+  #ar-button:focus-visible {
+    outline: 1px solid #4285f4;
+  }
+
+  @keyframes circle {
+    from { transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg); }
+    to   { transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg); }
+  }
+
+  @keyframes elongate {
+    from { transform: translateX(100px); }
+    to   { transform: translateX(-100px); }
+  }
+
+  model-viewer > #ar-prompt {
+    position: absolute;
+    left: 50%;
+    bottom: 175px;
+    animation: elongate 2s infinite ease-in-out alternate;
+    display: none;
+  }
+
+  model-viewer[ar-status="session-started"] > #ar-prompt {
+    display: block;
+  }
+
+  model-viewer > #ar-prompt > img {
+    animation: circle 4s linear infinite;
+  }
+
+  model-viewer > #ar-failure {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 175px;
+    display: none;
+  }
+
+  model-viewer[ar-tracking="not-tracking"] > #ar-failure {
+    display: block;
+  }
+
+
+
+  .slider {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    position: absolute;
+    bottom: 14px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .slide {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #343539;
+    margin-right: 10px;
+    border-radius: 10px;
+    border: none;
+    display: flex;
+  }
+
+  .slide.selected {
+    border: 2px solid #4285f4;
+  }
+
+  .slide:focus {
+    outline: none;
+  }
+
+  .slide:focus-visible {
+    outline: 1px solid #4285f4;
+  }
+
+  .top {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .logo2 img {
+    position: absolute;
+    right: 9%;
+    top: 6%;
+    width: 25%;
+  }
+
+  .logo h1 {
+    position: absolute;
+    left: 9%;
+    top: 5%;
+    font-size: 231%;
+    margin: 0%;
+  }
+
+  .redes {
+    position: absolute;
+    top: 76%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .redes a {
+    width: 10%;
+    margin: 1.3%;
+  }
+
+  .redes img {
+    width: 100%;
+  }
+
+  .botones {
+    position: absolute;
+    top: 18%;
+    right: 5%;
+    width: 34%;right: -1%;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .botones button {
+    background: none;
+    border: none;
+  }
+
+  .botones img {
+    width: 48%;
+  }
+
+  .play-button {
+    margin-left: 26%;
+  }
+
+
+
+
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+  @media (min-width: 500px) {
+    .slide {
+      width: 110px;
+      height: 110px;
+    }
+    .redes img {
+      width: 80%;
+    }
+    .logo2 img {
+      width: 10%;
+    }
+    .botones {
+      right: 3%;
+    }
+  }
+  @media (max-height: 640px){
+    .slide {
+      width: 80px;
+      height: 80px;
+    }
+    .redes img {
+      width: 80%;
+    }
+    .logo2 img {
+      width: 20%;
+    }
+    .botones {
+      top: 22%;
+    }.imgmodal {
+    width: 90%;
+    }
+}
+  @media (max-height: 660px){
+    .container {
+      height: 76%;
+    }
+    .down-container {
+      height: 200%;
+    } 
+
+}
+
+@media (max-height: 557px){
+    .slide {
+      width: 60px;
+      height: 60px;
+    }
+    .redes img {
+      width: 80%;
+    }
+    .logo2 img {
+      width: 18%;
+    }
+    .botones {
+      top: 22%;
+    }.imgmodal {
+    width: 85%;
+    }
+}
+
+@media (max-height: 472px){
+    .slide {
+      width: 50px;
+      height: 50px;
+    }
+    .redes img {
+      width: 75%;
+    }
+    .logo2 img {
+      width: 16%;
+    }
+    .botones {
+      top: 22%;
+    }.imgmodal {
+    width: 85%;
+    }
+}
+
+  
+  
+  @media (min-width: 1000px) {
+    .slide {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+</style>
